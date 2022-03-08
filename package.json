@@ -1,7 +1,30 @@
 {
-  "name": "phonebook",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@bylothink/phonebook",
+  "version": "1.0.0",
+  "description": "The frontend part of a sample phonebook app made by using @vuejs.",
+  "keywords": [
+    "Vue.js",
+    "TypeScript",
+    "Vite.js",
+    "TailwindCSS",
+    "PostCSS",
+    "Phonebook",
+    "Sample"
+  ],
+  "homepage": "https://github.com/Bylothink/phonebook-frontend#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bylothink/phonebook-frontend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Bylothink/phonebook-frontend/issues"
+  },
+  "author": {
+    "name": "Matteo Bilotta",
+    "email": "me@byloth.net",
+    "url": "https://www.byloth.net/"
+  },
+  "license": "GPL-3.0-or-later",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -11,7 +34,8 @@
     "ci": "yarn install --frozen-lockfile"
   },
   "dependencies": {
-    "vue": "^3.2.31"
+    "vue": "^3.2.31",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@byloth/eslint-config-typescript": "^2.1.1",
@@ -28,5 +52,6 @@
     "vite": "^2.8.6",
     "vue-eslint-parser": "^8.3.0",
     "vue-tsc": "^0.32.1"
-  }
+  },
+  "private": true
 }
