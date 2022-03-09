@@ -62,10 +62,15 @@
         @apply table-auto w-full;
         @apply bg-white rounded-md shadow-sm;
 
-        & > thead > tr > th
+        & > thead
         {
-            @apply px-3 py-2;
-            @apply font-medium;
+            @apply border-b border-b-gray-300;
+
+            & > tr > th
+            {
+                @apply px-3 py-2;
+                @apply font-medium text-left;
+            }
         }
         & > tbody
         {
@@ -78,12 +83,13 @@
                 & > td
                 {
                     @apply px-3 py-2;
+                    @apply border-b border-x border-gray-300;
                 }
             }
         }
         & > tfoot > tr > td
         {
-            @apply px-3 py-2;
+            @apply px-4 py-2;
             @apply font-medium;
 
             & > input
