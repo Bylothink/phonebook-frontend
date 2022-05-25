@@ -1,6 +1,28 @@
+import axios from "axios";
 import { defineStore } from "pinia";
 
 import { Contact } from "./models";
+
+const GET_ALL_QUERY = `{
+    contacts {
+        id
+        firstname
+        address
+        lastname
+        phone
+    }
+}`;
+
+interface _GetAllResponse
+{
+    data: { contacts: [{
+        id: number;
+        firstname: string;
+        address?: string;
+        lastname?: string;
+        phone: string;
+    }] };
+}
 
 const useStore = defineStore("contact", {
     state: () => ({ }),
@@ -9,20 +31,16 @@ const useStore = defineStore("contact", {
     actions: {
         async getAll(): Promise<Contact[]>
         {
-            return [
-                new Contact({
-                    id: 1,
-                    firstName: "John",
-                    lastName: "Doe",
-                    phone: "123456789",
-                    address: "123 Main St."
-                }),
-                new Contact({
-                    id: 2,
-                    firstName: "Jane",
-                    phone: "987654321"
-                })
-            ];
+            const data = { query: GET_ALL_QUERY };
+            const response = await axios.post<_GetAllResponse>("http://localhost:8000/graphql", data);
+
+            return response.data.data.contacts.map((contact) => new Contact({
+                id: contact.id,
+                firstName: contact.firstname,
+                lastName: contact.lastname,
+                phone: contact.phone,
+                address: contact.address
+            }));
         }
     }
 });

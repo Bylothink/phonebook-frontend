@@ -8,11 +8,11 @@
             </tr>
         </thead>
         <tbody>
-            <!-- <tr v-for="(contact, index) in contacts">
-                <td>{{ contact.name }}</td>
+            <tr v-for="contact in contacts" :key="contact.id">
+                <td>{{ contact.completeName }}</td>
                 <td>{{ contact.phone }}</td>
                 <td>{{ contact.address }}</td>
-            </tr> -->
+            </tr>
         </tbody>
     </table>
 </template>
